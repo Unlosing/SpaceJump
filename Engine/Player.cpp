@@ -1,10 +1,28 @@
 #include "Player.h"
 
-void Player::Init(const Keyboard& kbd)
+void Player::Init(int x_in, int y_in, int vx_in, int vy_in)
 {
-	if (kbd.KeyIsPressed(VK_SPACE))
+	x += x_in;
+	y += y_in;
+	vx += vx_in;
+	vy += vy_in;
+}
+
+void Player::Update()
+{
+	x += vx;
+	y += vy;
+
+	const int right = x + width;
+	if (x < 0)
 	{
-		// Jump
+		x = 0;
+		vx = -vx;
+	}
+	else if (right >= Graphics::ScreenWidth)
+	{
+		x = (Graphics::ScreenWidth - 1) - width;
+		vx = -vx;
 	}
 }
 

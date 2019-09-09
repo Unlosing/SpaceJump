@@ -59,14 +59,7 @@ void Map::DrawSky(Graphics& gfx)
 	
 }
 
-void Map::DrawObstacle(int x_in, int y_in,Graphics& gfx)
-{
-	gfx.DrawRectDim(x_in, y_in, obWidth, obHeight, Colors::Gray);
-}
-
 void Map::DrawGround(int x, int y,Graphics& gfx)
 {
-
 	gfx.PutPixel(x, y,Colors::Green);
-
 }

@@ -29,6 +29,7 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd )
 {
 	title.Play();
+	player.Init(5, 370, 1, 0);
 }
 
 void Game::Go()
@@ -60,6 +61,7 @@ void Game::UpdateModel()
 			paused = false;
 		}
 		title.StopAll();
+		player.Update();
 		if (!isMainPlaying && !paused)
 		{
 			main.Play();
@@ -69,10 +71,6 @@ void Game::UpdateModel()
 		{
 			main.StopOne();
 			isMainPlaying = false;
-		}
-		else if (!paused)
-		{
-			player.Init(kbd);
 		}
 		
 	}
@@ -98,6 +96,4 @@ void Game::ComposeFrame()
 	{
 
 	}
-
-	
 }

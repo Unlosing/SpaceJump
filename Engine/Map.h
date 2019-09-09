@@ -10,7 +10,6 @@ public:
 	void DrawStar(int x, int y, Graphics& gfx);
 	void DrawTitle(int x, int y, Graphics& gfx);
 	void DrawSky(Graphics& gfx);
-	void DrawObstacle(int x_in, int y_in,Graphics& gfx);
 	void DrawGround(int x, int y,Graphics& gfx);
 private:
 	int x;
