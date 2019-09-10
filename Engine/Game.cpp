@@ -31,7 +31,7 @@ Game::Game( MainWindow& wnd )
 	xDist(400,770),
 	yDist(0,570)
 {
-	for (int i = 0; i < nObstacle; ++i)
+	for (int i = 0; i < currentLevel; ++i)
 	{
 		obstacles[i].Init(Vec2(xDist(rng), yDist(rng)), Vec2(-3.5f * 60.0f, 0));
 	}
@@ -49,7 +49,6 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	const float dt = ft.Mark();
-
 	if (!isStarted)
 	{
 		if (wnd.kbd.KeyIsPressed(VK_RETURN))
@@ -62,13 +61,27 @@ void Game::UpdateModel()
 		player.Update(wnd.kbd, dt);
 		player.ClampToScreen();
 
-		for (int i = 0; i < nObstacle; ++i)
+		for (int i = 0; i < currentLevel; ++i)
 		{
 			obstacles[i].Update(dt);
 			obstacles[i].Respawn(Vec2(xDist(rng), yDist(rng)));
 			if (obstacles[i].TestCollision(player))
 			{
 				isEnded = true;
+			}
+		}
+		if (map.TestGoalCollision(player, gfx))
+		{
+			currentLevel++;
+			player.Respawn(Vec2(5.0f, 370.0f));
+			for (int i = 0; i < currentLevel; ++i)
+			{
+				obstacles[i].Init(Vec2(xDist(rng), yDist(rng)), Vec2(-3.5f * 60.0f, 0));
+			}
+			for (int i = 0; i < currentLevel; ++i)
+			{
+				obstacles[i].Update(dt);
+				obstacles[i].Respawn(Vec2(xDist(rng), yDist(rng)));
 			}
 		}
 		if (wnd.kbd.KeyIsPressed(VK_ESCAPE) && !paused)
@@ -90,7 +103,6 @@ void Game::UpdateModel()
 			main.StopOne();
 			isMainPlaying = false;
 		}
-		
 	}
 	if (isEnded)
 	{
@@ -103,20 +115,16 @@ void Game::ComposeFrame()
 {
 	if (isStarted)
 	{
-		for (int i = 0; i < nObstacle; ++i)
+		for (int i = 0; i < currentLevel; ++i)
 		{
 			obstacles[i].Draw(gfx);
 		}
 		player.Draw(gfx);
 		map.DrawSky(gfx);
 		map.DrawGoal(gfx);
-		//for (int x = 1; x < 799; x++)
-		//{
-		//	map.DrawGround(x,400, gfx);
-		//}
 	}
 	else
 	{
-
+		map.DrawTitle(0, 0, gfx);
 	}
 }

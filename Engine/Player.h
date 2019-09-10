@@ -10,6 +10,7 @@ public:
 	void ClampToScreen();
 	void Update(const Keyboard& kbd, float dt);
 	void Draw(Graphics& gfx);
+	void Respawn(const Vec2& pos_in);
 	Vec2 GetPos() const;
 	bool IsDead();
 	float GetWidth() const;

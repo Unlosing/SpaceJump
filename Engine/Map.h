@@ -12,7 +12,7 @@ public:
 	void DrawTitle(int x, int y, Graphics& gfx);
 	void DrawSky(Graphics& gfx);
 	void DrawGround(int x, int y,Graphics& gfx);
-	bool TestGoalCollision(const Player& player);
+	bool TestGoalCollision(const Player& player, Graphics& gfx);
 	void DrawGoal(Graphics& gfx) const;
 private:
 	int x;

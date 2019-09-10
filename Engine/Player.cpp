@@ -350,6 +350,11 @@ void Player::Draw(Graphics& gfx)
 	gfx.PutPixel(22 + x_int, 25 + y_int, 127, 255, 127);
 }
 
+void Player::Respawn(const Vec2& pos_in)
+{
+	pos = pos_in;
+}
+
 Vec2 Player::GetPos() const
 {
 	return pos;

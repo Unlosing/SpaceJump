@@ -64,9 +64,11 @@ void Map::DrawGround(int x, int y,Graphics& gfx)
 	gfx.PutPixel(x, y,Colors::Green);
 }
 
-bool Map::TestGoalCollision(const Player& player)
+bool Map::TestGoalCollision(const Player& player, Graphics& gfx)
 {
-	return false;
+	const float playerRight = player.GetPos().x + player.GetWidth();
+
+	return playerRight >= 794;
 }
 
 void Map::DrawGoal(Graphics& gfx) const

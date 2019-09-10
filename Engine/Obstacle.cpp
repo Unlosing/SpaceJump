@@ -15,26 +15,20 @@ void Obstacle::Update(float dt)
 	if (pos.x < 0)
 	{
 		pos.x = 0;
-		initialized = false;
-		//vel.x = -vel.x;
 	}
 	else if (right >= float(Graphics::ScreenWidth))
 	{
 		pos.x = float(Graphics::ScreenWidth - 1) - width;
-		initialized = false;
-		//vel.x = -vel.x;
 	}
 
 	const float bottom = pos.y + height;
 	if (pos.y < 0)
 	{
 		pos.y = 0;
-		//vel.y = -vel.y;
 	}
 	else if (bottom >= float(Graphics::ScreenHeight))
 	{
 		pos.y = float(Graphics::ScreenHeight - 1) - height;
-		//vel.y = -vel.y;
 	}
 }
 

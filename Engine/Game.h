@@ -62,6 +62,7 @@ private:
 	bool isEnded = false;
 	bool isMainPlaying = false;
 	bool paused = false;
+	int currentLevel = 1;
 	//Sound jump = Sound(L"Sounds\\jump.wav");
 	//SoundEffect dead = SoundEffect({ L"" });
 	Sound title = Sound(L"Sounds\\title.wav");
