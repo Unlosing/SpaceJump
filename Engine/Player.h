@@ -2,20 +2,22 @@
 
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "Vec2.h"
 
 class Player
 {
 public:
-	void Init(int x_in, int y_in, int vx_in, int vy_in);
-	void Update();
-	void Draw(int x, int y, Graphics& gfx);
+	void ClampToScreen();
+	void Update(const Keyboard& kbd, float dt);
+	void Draw(Graphics& gfx);
+	Vec2 GetPos() const;
 	bool IsDead();
+	float GetWidth() const;
+	float GetHeight() const;
 private:
-	int x;
-	int y;
-	int vx;
-	int vy;
-	static constexpr int width = 30;
-	static constexpr int height = 30;
+	Vec2 pos = Vec2(5.0f, 370.0f);
+	static constexpr float speed = 2.0f * 60.0f;
+	static constexpr float width = 30.0f;
+	static constexpr float height = 30.0f;
 	bool isDead = false;
 };

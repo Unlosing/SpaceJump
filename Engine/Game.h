@@ -26,6 +26,9 @@
 #include "Player.h"
 #include "Map.h"
 #include "Sound.h"
+#include "FrameTimer.h"
+#include "Obstacle.h"
+#include <random>
 
 class Game
 {
@@ -45,9 +48,16 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	FrameTimer ft;
+	std::random_device rd;
+	std::mt19937 rng;
+	std::uniform_real_distribution<float> xDist;
+	std::uniform_real_distribution<float> yDist;
 	Player player;
 	Map map;
 	Keyboard kbd;
+	static constexpr int nObstacle = 10;
+	Obstacle obstacles[nObstacle];
 	bool isStarted = false;
 	bool isEnded = false;
 	bool isMainPlaying = false;

@@ -11,6 +11,8 @@ public:
 	void DrawTitle(int x, int y, Graphics& gfx);
 	void DrawSky(Graphics& gfx);
 	void DrawGround(int x, int y,Graphics& gfx);
+	int GetLevel() const;
+	int currentLevel = 0;
 private:
 	int x;
 	int y;

@@ -63,3 +63,8 @@ void Map::DrawGround(int x, int y,Graphics& gfx)
 {
 	gfx.PutPixel(x, y,Colors::Green);
 }
+
+int Map::GetLevel() const
+{
+	return currentLevel;
+}
