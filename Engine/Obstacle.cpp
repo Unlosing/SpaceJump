@@ -59,3 +59,12 @@ void Obstacle::Draw(Graphics& gfx) const
 
 	gfx.DrawRectDim(x_int, y_int, width, height, Colors::Gray);
 }
+
+void Obstacle::Respawn(const Vec2& pos_in)
+{
+	const float obstacleLeft = pos.x - width;
+	if (obstacleLeft < 0)
+	{
+		pos = pos_in;
+	}
+}

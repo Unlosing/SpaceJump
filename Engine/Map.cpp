@@ -64,7 +64,12 @@ void Map::DrawGround(int x, int y,Graphics& gfx)
 	gfx.PutPixel(x, y,Colors::Green);
 }
 
-int Map::GetLevel() const
+bool Map::TestGoalCollision(const Player& player)
 {
-	return currentLevel;
+	return false;
+}
+
+void Map::DrawGoal(Graphics& gfx) const
+{
+	gfx.DrawRectDim(794, 1, goalWidth,goalHeight,Colors::Red);
 }

@@ -33,7 +33,7 @@ Game::Game( MainWindow& wnd )
 {
 	for (int i = 0; i < nObstacle; ++i)
 	{
-		obstacles[i].Init(Vec2(xDist(rng), yDist(rng)), Vec2(-4.5f * 60.0f, 0));
+		obstacles[i].Init(Vec2(xDist(rng), yDist(rng)), Vec2(-3.5f * 60.0f, 0));
 	}
 	title.Play();
 }
@@ -65,6 +65,7 @@ void Game::UpdateModel()
 		for (int i = 0; i < nObstacle; ++i)
 		{
 			obstacles[i].Update(dt);
+			obstacles[i].Respawn(Vec2(xDist(rng), yDist(rng)));
 			if (obstacles[i].TestCollision(player))
 			{
 				isEnded = true;
@@ -108,6 +109,7 @@ void Game::ComposeFrame()
 		}
 		player.Draw(gfx);
 		map.DrawSky(gfx);
+		map.DrawGoal(gfx);
 		//for (int x = 1; x < 799; x++)
 		//{
 		//	map.DrawGround(x,400, gfx);

@@ -11,6 +11,7 @@ public:
 	void Update(float dt);
 	bool TestCollision(const Player& player) const;
 	void Draw(Graphics& gfx) const;
+	void Respawn(const Vec2& pos_in);
 private:
 	Vec2 pos;
 	Vec2 vel;
