@@ -25,19 +25,19 @@ void Player::ClampToScreen()
 
 void Player::Update(const Keyboard& kbd, float dt)
 {
-	if (kbd.KeyIsPressed(VK_RIGHT))
+	if (kbd.KeyIsPressed(VK_RIGHT) || kbd.KeyIsPressed('D'))
 	{
 		pos.x += speed * dt;
 	}
-	if (kbd.KeyIsPressed(VK_LEFT))
+	if (kbd.KeyIsPressed(VK_LEFT) || kbd.KeyIsPressed('A'))
 	{
 		pos.x -= speed * dt;
 	}
-	if (kbd.KeyIsPressed(VK_DOWN))
+	if (kbd.KeyIsPressed(VK_DOWN) || kbd.KeyIsPressed('S'))
 	{
 		pos.y += speed * dt;
 	}
-	if (kbd.KeyIsPressed(VK_UP))
+	if (kbd.KeyIsPressed(VK_UP) || kbd.KeyIsPressed('W'))
 	{
 		pos.y -= speed * dt;
 	}

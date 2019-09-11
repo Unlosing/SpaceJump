@@ -53,6 +53,7 @@ void Game::UpdateModel()
 	{
 		if (wnd.kbd.KeyIsPressed(VK_RETURN))
 		{
+		//	isEnded = false;
 			isStarted = true;
 		}
 	}
