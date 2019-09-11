@@ -84,24 +84,11 @@ void Game::UpdateModel()
 				obstacles[i].Respawn(Vec2(xDist(rng), yDist(rng)));
 			}
 		}
-		if (wnd.kbd.KeyIsPressed(VK_ESCAPE) && !paused)
-		{
-			paused = true;
-		}
-		else if (wnd.kbd.KeyIsPressed(VK_ESCAPE) && paused)
-		{
-			paused = false;
-		}
 		title.StopAll();
-		if (!isMainPlaying && !paused)
+		if (!isMainPlaying)
 		{
 			main.Play();
 			isMainPlaying = true;
-		}
-		if (paused)
-		{
-			main.StopOne();
-			isMainPlaying = false;
 		}
 	}
 	if (isEnded)
@@ -125,6 +112,6 @@ void Game::ComposeFrame()
 	}
 	else
 	{
-		map.DrawTitle(0, 0, gfx);
+		map.DrawTitle(250, 250, gfx);
 	}
 }

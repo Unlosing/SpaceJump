@@ -56,7 +56,7 @@ private:
 	Player player;
 	Map map;
 	Keyboard kbd;
-	static constexpr int nObstacle = 10;
+	static constexpr int nObstacle = 25;
 	Obstacle obstacles[nObstacle];
 	bool isStarted = false;
 	bool isEnded = false;
