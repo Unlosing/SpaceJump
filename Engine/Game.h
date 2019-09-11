@@ -61,6 +61,7 @@ private:
 	bool isStarted = false;
 	bool isEnded = false;
 	bool isMainPlaying = false;
+	bool isTitlePlaying = true;
 	bool paused = false;
 	int currentLevel = 1;
 	//Sound jump = Sound(L"Sounds\\jump.wav");

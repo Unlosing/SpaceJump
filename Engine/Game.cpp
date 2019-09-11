@@ -53,7 +53,17 @@ void Game::UpdateModel()
 	{
 		if (wnd.kbd.KeyIsPressed(VK_RETURN))
 		{
-		//	isEnded = false;
+			if (!isTitlePlaying)
+			{
+				title.Play();
+				isTitlePlaying = true;
+			}
+			if (isEnded)
+			{
+				currentLevel = 1;
+				player.Respawn(Vec2(5.0f, 370.0f));
+				isEnded = false;
+			}
 			isStarted = true;
 		}
 	}
@@ -86,6 +96,7 @@ void Game::UpdateModel()
 			}
 		}
 		title.StopAll();
+		isTitlePlaying = false;
 		if (!isMainPlaying)
 		{
 			main.Play();
@@ -95,6 +106,7 @@ void Game::UpdateModel()
 	if (isEnded)
 	{
 		main.StopAll();
+		isMainPlaying = false;
 		isStarted = false;
 	}
 }
